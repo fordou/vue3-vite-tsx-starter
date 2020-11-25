@@ -97,7 +97,7 @@ export const asyncRoutes: ConstantRoute[] = [
       {
         path: '404',
         name: 'Error404',
-        component: () => import('/@/views/404.vue'),
+        component: () => import('/@/views/404.tsx'),
         meta: {
           title: '404',
           icon: 'error-warning-line',
