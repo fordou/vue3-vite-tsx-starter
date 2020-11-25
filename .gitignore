@@ -1,0 +1,7 @@
+
+mock/db/rest/*/*/*/mock/response.txt
+mock/rest/*/*/*/mock/response.txt
+/node_modules/
+/yarn.lock
+/yarn-error.log
+/.idea
