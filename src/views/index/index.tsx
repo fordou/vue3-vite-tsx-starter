@@ -1,12 +1,12 @@
+import { defineComponent } from 'vue';
+import { VersionInformation } from './components/VersionInformation';
 
-  import { defineComponent } from 'vue'
-  import { VersionInformation } from './components/VersionInformation';
-  export default defineComponent({
-    render(){
-      return (
-        <div>
-          <VersionInformation />
-        </div>
-      )
-    }
-  })
+export default defineComponent({
+  render() {
+    return (
+      <div>
+        <VersionInformation/>
+      </div>
+    );
+  },
+});

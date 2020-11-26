@@ -41,7 +41,6 @@ const props: ComponentPropsOptions<ErrorPageProps> = {
 export const ErrorPage = defineComponent({
   props,
   setup(props: Partial<ErrorPageProps>) {
-    console.log(props);
     const router = useRouter();
     const path = useRoute().path;
     const jumpTime = ref<number>(props.jumpTime || 5);
@@ -71,9 +70,9 @@ export const ErrorPage = defineComponent({
     return { jumpTime, closeThisPage };
   },
 
-  render(_: any, __: any, props: ErrorPageProps) {
-    const { oops, headline, info, btn } = props;
-    const { jumpTime, closeThisPage } = this;
+  render() {
+    const { jumpTime, closeThisPage, $props } = this;
+    const { oops, headline, info, btn } = $props;
     const slot = getSlot(this);
     return (
       <div class="error-container">
