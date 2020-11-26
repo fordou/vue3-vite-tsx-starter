@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import Antd from 'ant-design-vue';
 import { App } from './App';
 import { router } from './router';
-import { store } from './store';
+import { STORE } from './store';
 
 // plugin
 import '/@/vab'
@@ -15,6 +15,6 @@ import '/@/styles/index.less';
 
 createApp(App)
   .use(router)
-  .use(store)
+  .use(STORE)
   .use(Antd)
   .mount('#app');

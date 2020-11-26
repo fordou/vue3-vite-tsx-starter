@@ -2,7 +2,7 @@ import { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 import { toArray } from '/@/utils/to-array';
 import { SafeAny } from '/@/utils/type';
 import { message } from 'ant-design-vue';
-import { store } from '/@/store';
+import { STORE } from '/@/store';
 import { router } from '/@/router';
 import { CONFIG } from '/@/config';
 
@@ -19,7 +19,7 @@ const handleCode = (code: number, data: SafeAny) => {
   switch (code) {
     case 401:
       message.error(data || '登录失效');
-      store.dispatch('USER/resetAll').catch(() => {
+      STORE.dispatch('USER/resetAll').catch(() => {
         // todo
       });
       break;

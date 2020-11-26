@@ -1,5 +1,5 @@
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { store } from '/@/store';
+import { STORE } from '/@/store';
 import { SafeAny } from '/@/utils/type';
 import { CONFIG } from '/@/config';
 
@@ -11,7 +11,7 @@ const { debounce, tokenName } = CONFIG;
  */
 export function requestUseToken(axiosInstance: AxiosInstance) {
   axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
-      const token = store.getters['USER/accessToken'];
+      const token = STORE.getters['USER/accessToken'];
       const CONTENT_TYPE = 'application/x-www-form-urlencoded;charset=UTF-8';
 
       if (token) {

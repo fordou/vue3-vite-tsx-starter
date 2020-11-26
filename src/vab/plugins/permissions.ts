@@ -3,7 +3,7 @@
  * @description 路由守卫，目前两种模式：all模式与intelligence模式
  */
 import { router } from '/@/router';
-import { store } from '/@/store';
+import { STORE } from '/@/store';
 import { getPageTitle } from '/@/utils/page-title';
 import { CONFIG } from '/@/config';
 import { RouteRecordRaw } from 'vue-router';
@@ -11,7 +11,7 @@ import { RouteRecordRaw } from 'vue-router';
 const { authentication, loginInterception, recordRoute, routesWhiteList } = CONFIG;
 
 router.beforeEach(async (to, from, next) => {
-  let hasToken = store.getters['USER/accessToken'];
+  let hasToken = STORE.getters['USER/accessToken'];
 
   if (!loginInterception) {
     hasToken = true;
@@ -22,25 +22,25 @@ router.beforeEach(async (to, from, next) => {
       next({ path: '/' });
     } else {
       const hasRoles =
-        store.getters['ACL/admin'] ||
-        store.getters['ACL/role']?.length > 0 ||
-        store.getters['ACL/ability']?.length > 0;
+        STORE.getters['ACL/admin'] ||
+        STORE.getters['ACL/role']?.length > 0 ||
+        STORE.getters['ACL/ability']?.length > 0;
       if (hasRoles) {
         next();
       } else {
         try {
           if (loginInterception) {
-            await store.dispatch('USER/getUserInfo');
+            await STORE.dispatch('USER/getUserInfo');
           } else {
             //loginInterception为false（关闭登录拦截时）时，创建虚拟角色
-            await store.dispatch('USER/setVirtualRoles');
+            await STORE.dispatch('USER/setVirtualRoles');
           }
 
           let accessRoutes: RouteRecordRaw[] = [];
           if (authentication === 'intelligence') {
-            accessRoutes = await store.dispatch('ROUTES/setRoutes');
+            accessRoutes = await STORE.dispatch('ROUTES/setRoutes');
           } else if (authentication === 'all') {
-            accessRoutes = await store.dispatch('ROUTES/setAllRoutes');
+            accessRoutes = await STORE.dispatch('ROUTES/setAllRoutes');
           }
           accessRoutes.forEach((item) => {
             router.addRoute(item);
@@ -48,7 +48,7 @@ router.beforeEach(async (to, from, next) => {
 
           next({ ...to, replace: true });
         } catch {
-          await store.dispatch('USER/resetAll');
+          await STORE.dispatch('USER/resetAll');
           if (recordRoute)
             next({
               path: '/login',

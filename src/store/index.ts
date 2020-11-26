@@ -8,7 +8,7 @@ import { USER } from './modules/user';
 import { ROUTES } from './modules/routes';
 
 
-export const store = createStore({
+export const STORE = createStore({
   mutations: {},
   actions: {},
   modules:{

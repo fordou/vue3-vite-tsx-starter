@@ -1,11 +1,11 @@
-import { store } from '/@/store';
+import { STORE } from '/@/store';
 import { SafeAny } from '/@/utils/type';
 
 export function hasRole(value: SafeAny) {
-  if (store.getters['ACL/admin']) return true;
+  if (STORE.getters['ACL/admin']) return true;
   if (value instanceof Array && value.length > 0)
     return can({
-      roleOrAbility: store.getters['ACL/role'], value: {
+      roleOrAbility: STORE.getters['ACL/role'], value: {
         role: value,
         mode: 'oneOf',
       }
@@ -16,14 +16,14 @@ export function hasRole(value: SafeAny) {
   if (Object.prototype.hasOwnProperty.call(value, 'role'))
     result =
       result && can({
-        roleOrAbility: store.getters['ACL/role'],
+        roleOrAbility: STORE.getters['ACL/role'],
         value: { role: value['role'], mode }
       });
   if (result && Object.prototype.hasOwnProperty.call(value, 'ability'))
     result =
       result &&
       can({
-        roleOrAbility: store.getters['ACL/ability'], value: {
+        roleOrAbility: STORE.getters['ACL/ability'], value: {
           role: value['ability'],
           mode,
         }

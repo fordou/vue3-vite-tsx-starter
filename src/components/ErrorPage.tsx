@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import { interval } from '/@/utils/timer';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { SafeAny } from '/@/utils/type';
 import { Col, Row } from 'ant-design-vue';
@@ -43,33 +43,38 @@ export const ErrorPage = defineComponent({
   setup(props: Partial<ErrorPageProps>) {
     console.log(props);
     const router = useRouter();
+    const path = useRoute().path;
     const jumpTime = ref<number>(props.jumpTime || 5);
     const timer = ref(0);
     const store = useStore();
-    const delOthersVisitedRoutes = (t: SafeAny) => store.dispatch(
-      'TAGS_BAR/delOthersVisitedRoutes', t);
+    const delVisitedRoute = (t: SafeAny) => store.dispatch(
+      'TAGS_BAR/delVisitedRoute', t);
 
     onMounted(() => {
       timer.value = interval(1000, async () => {
-        if (jumpTime.value > 0) {
+        if (jumpTime && jumpTime.value > 0) {
           jumpTime.value--;
         } else {
-          await Promise.all([
-            router.push({ path: '/' }),
-            delOthersVisitedRoutes({ path: '/' }),
-          ]);
+          await closeThisPage();
           clearInterval(timer.value);
         }
       });
     });
 
-    return { jumpTime };
+    function closeThisPage() {
+      return Promise.all([
+        router.push({ path: '/' }),
+        delVisitedRoute({ path }),
+      ]);
+    }
+
+    return { jumpTime, closeThisPage };
   },
 
   render(_: any, __: any, props: ErrorPageProps) {
     const { oops, headline, info, btn } = props;
-    const { jumpTime } = this;
-    const slot = getSlot(this)
+    const { jumpTime, closeThisPage } = this;
+    const slot = getSlot(this);
     return (
       <div class="error-container">
         <div class="error-content">
@@ -83,7 +88,7 @@ export const ErrorPage = defineComponent({
                 <div class="bullshit-oops">{oops}</div>
                 <div class="bullshit-headline">{headline}</div>
                 <div class="bullshit-info">{info}</div>
-                <a class="bullshit-return-home" href="#/index">
+                <a class="bullshit-return-home" onClick={closeThisPage}>
                   {jumpTime}s&nbsp;{btn}
                 </a>
               </div>
