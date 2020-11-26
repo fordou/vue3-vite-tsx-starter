@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Layout from '/@/layout/index.vue';
+import { JuLayout } from '/@/layout/index.tsx';
 import { ConstantRoute } from '/@/utils/routes';
 
 export const asyncRoutes: ConstantRoute[] = [
   {
     path: '/',
-    component: Layout,
+    component: JuLayout,
     redirect: '/index',
     meta: {
       title: '首页',
@@ -16,7 +16,7 @@ export const asyncRoutes: ConstantRoute[] = [
       {
         path: 'index',
         name: 'Index',
-        component: () => import('/@/views/index/index.vue'),
+        component: () => import('/@/views/index/index.tsx'),
         meta: {
           title: '首页',
           icon: 'home-4-line',
@@ -27,7 +27,7 @@ export const asyncRoutes: ConstantRoute[] = [
   },
   {
     path: '/vab',
-    component: Layout,
+    component: JuLayout,
     redirect: '/vab/table',
     alwaysShow: true,
     meta: {
@@ -38,7 +38,7 @@ export const asyncRoutes: ConstantRoute[] = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('/@/views/vab/table/index.vue'),
+        component: () => import('/@/views/vab/table/index.tsx'),
         meta: {
           title: '表格',
           icon: 'table-2',
@@ -47,7 +47,7 @@ export const asyncRoutes: ConstantRoute[] = [
       {
         path: 'icon',
         name: 'Icon',
-        component: () => import('/@/views/vab/icon/index.vue'),
+        component: () => import('/@/views/vab/icon/index.tsx'),
         meta: {
           title: '图标',
           icon: 'remixicon-line',
@@ -57,7 +57,7 @@ export const asyncRoutes: ConstantRoute[] = [
   },
   {
     path: '/test',
-    component: Layout,
+    component: JuLayout,
     redirect: '/test/test',
     meta: {
       title: '动态路由测试',
@@ -67,7 +67,7 @@ export const asyncRoutes: ConstantRoute[] = [
       {
         path: 'test',
         name: 'Test',
-        component: () => import('/@/views/test/index.vue'),
+        component: () => import('/@/views/test/index.tsx'),
         meta: {
           title: '动态路由测试',
           icon: 'test-tube-line',
@@ -78,7 +78,7 @@ export const asyncRoutes: ConstantRoute[] = [
   {
     path: '/error',
     name: 'Error',
-    component: Layout,
+    component: JuLayout,
     redirect: '/error/403',
     meta: {
       title: '错误页',

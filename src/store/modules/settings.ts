@@ -96,8 +96,9 @@ export const SETTINGS: Module<SettingsState, any> = {
     themeName: (state) => state.themeName,
   },
   mutations: {
-    toggleCollapse(state) {
-      state.collapse = !state.collapse;
+    toggleCollapse(state, value:boolean ) {
+      console.log('asdfasdf')
+      state.collapse = value ?? !state.collapse;
       localStorage.setItem(
         'vue-admin-beautiful-pro-collapse',
         `{"collapse":${state.collapse}}`,

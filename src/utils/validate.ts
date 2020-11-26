@@ -6,8 +6,8 @@
  */
 import { SafeAny } from '/@/utils/type';
 
-export function isExternal(path: string) {
-  return /^(https?:|mailto:|tel:)/.test(path);
+export function isExternal(path?: string) {
+  return /^(https?:|mailto:|tel:)/.test(path + '');
 }
 
 /**
@@ -16,8 +16,8 @@ export function isExternal(path: string) {
  * @param value
  * @returns {boolean}
  */
-export function isPassword(value: string) {
-  return value.length >= 6;
+export function isPassword(value?: string) {
+  return (value + '').length >= 6;
 }
 
 /**
@@ -26,9 +26,9 @@ export function isPassword(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isNumber(value: string) {
+export function isNumber(value?: string) {
   const reg = /^[0-9]*$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -37,9 +37,9 @@ export function isNumber(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isName(value: string) {
+export function isName(value?: string) {
   const reg = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -70,9 +70,9 @@ export function isUrl(url: string) {
  * @param value
  * @returns {boolean}
  */
-export function isLowerCase(value: string) {
+export function isLowerCase(value?: string) {
   const reg = /^[a-z]+$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -81,9 +81,9 @@ export function isLowerCase(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isUpperCase(value: string) {
+export function isUpperCase(value?: string) {
   const reg = /^[A-Z]+$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -92,9 +92,9 @@ export function isUpperCase(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isAlphabets(value: string) {
+export function isAlphabets(value?: string) {
   const reg = /^[A-Za-z]+$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -137,9 +137,9 @@ export function isPort(value: string | number) {
  * @param value
  * @returns {boolean}
  */
-export function isPhone(value: string) {
+export function isPhone(value?: string) {
   const reg = /^1\d{10}$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -148,9 +148,9 @@ export function isPhone(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isIdCard(value: string) {
+export function isIdCard(value?: string) {
   const reg = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -159,9 +159,9 @@ export function isIdCard(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isEmail(value: string) {
+export function isEmail(value?: string) {
   const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -170,9 +170,9 @@ export function isEmail(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isChina(value: string) {
+export function isChina(value?: string) {
   const reg = /^[\u4E00-\u9FA5]{2,4}$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -181,7 +181,7 @@ export function isChina(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isBlank(value: string) {
+export function isBlank(value?: string) {
   return (
     value == null ||
     false ||
@@ -197,7 +197,7 @@ export function isBlank(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isTel(value: string) {
+export function isTel(value?: string) {
   const reg = /^(400|800)([0-9\\-]{7,10})|(([0-9]{4}|[0-9]{3})([- ])?)?([0-9]{7,8})(([- 转])*([0-9]{1,4}))?$/;
   return reg.test(value);
 }
@@ -208,9 +208,9 @@ export function isTel(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isNum(value: string) {
+export function isNum(value?: string) {
   const reg = /^\d+(\.\d{1,2})?$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -219,9 +219,9 @@ export function isNum(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isLongitude(value: string) {
+export function isLongitude(value?: string) {
   const reg = /^[-|+]?(0?\d{1,2}\.\d{1,5}|1[0-7]?\d{1}\.\d{1,5}|180\.0{1,5})$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -230,9 +230,9 @@ export function isLongitude(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isLatitude(value: string) {
+export function isLatitude(value?: string) {
   const reg = /^[-|+]?([0-8]?\d{1}\.\d{1,5}|90\.0{1,5})$/;
-  return reg.test(value);
+  return reg.test(value + '');
 }
 
 /**
@@ -241,11 +241,11 @@ export function isLatitude(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isRTSP(value: string) {
+export function isRTSP(value?: string) {
   const reg = /^rtsp:\/\/([a-z]{0,10}:.{0,10}@)?(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
   const reg1 = /^rtsp:\/\/([a-z]{0,10}:.{0,10}@)?(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5]):[0-9]{1,5}/;
   const reg2 = /^rtsp:\/\/([a-z]{0,10}:.{0,10}@)?(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\//;
-  return reg.test(value) || reg1.test(value) || reg2.test(value);
+  return reg.test(value + '') || reg1.test(value + '') || reg2.test(value + '');
 }
 
 /**
@@ -254,9 +254,9 @@ export function isRTSP(value: string) {
  * @param value
  * @returns {boolean}
  */
-export function isJson(value: string) {
+export function isJson(value?: string) {
   try {
-    const obj = JSON.parse(value);
+    const obj = JSON.parse(value + '');
     return !!(typeof obj == 'object' && obj);
   } catch (e) {
     return false;

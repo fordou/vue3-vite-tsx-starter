@@ -119,7 +119,7 @@ export const USER: Module<UserState, any> = {
      * @returns
      */
     async getUserInfo({ commit, dispatch }): Promise<void> {
-      const [data] = await asyncCatch(getUserInfo())
+      const data = await getUserInfo()
       if (!data) {
         message.error(`验证失败，请重新登录...`);
         return;
@@ -150,7 +150,7 @@ export const USER: Module<UserState, any> = {
      * @description 重置accessToken、roles、ability、router等
      * @param {*} { commit, dispatch }
      */
-    async resetAll({ dispatch }) {
+    async resetAll({ dispatch,state }) {
       await dispatch('setAccessToken', '');
       await dispatch('ACL/setFull', false, { root: true });
       await dispatch('ACL/setRole', [], { root: true });

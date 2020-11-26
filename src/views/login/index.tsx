@@ -66,12 +66,13 @@ export default defineComponent({
 
     async function handleSubmit() {
       isLoading.value = true;
-      const [res] = await asyncCatch(login(form));
+      const [, err] = await asyncCatch(login(form));
       isLoading.value = false;
-      if (!res) {
+      if (err) {
         return;
       }
-      await router.push(handleRoute());
+      const url = handleRoute();
+      await router.push(url);
     }
 
     watch(route, (newRoute) => {
@@ -89,7 +90,7 @@ export default defineComponent({
 
   render() {
     const { title, getFormGroup } = this;
-    const formGroup = getFormGroup()
+    const formGroup = getFormGroup();
     return (
       <>
         <div class="login-container flex flex-row-reverse items-center px-10">

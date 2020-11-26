@@ -3,7 +3,7 @@ import { ComponentPublicInstance, Fragment, isVNode } from '@vue/runtime-core';
 import { SafeAny } from '/@/utils/type';
 
 export const getSlot = (
-  self: ComponentPublicInstance,
+  self: ComponentPublicInstance | SafeAny,
   name = 'default',
   options = {},
 ): SafeAny[] => {

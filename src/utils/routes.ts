@@ -10,7 +10,7 @@ const { rolesControl } = CONFIG;
 
 export type ConstantRoute =
   Partial<RouteRecordRaw>
-  & { hidden?: boolean, alwaysShow?: boolean, component?: SafeAny, children?: ConstantRoute[] }
+  & { hidden?: boolean, alwaysShow?: boolean, component?: SafeAny, children?: ConstantRoute[], fullPath?: SafeAny }
 
 /**
  * @description all模式渲染后端返回路由

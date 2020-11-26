@@ -13,7 +13,6 @@ const { authentication, loginInterception, recordRoute, routesWhiteList } = CONF
 router.beforeEach(async (to, from, next) => {
   let hasToken = store.getters['USER/accessToken'];
 
-  console.log(hasToken)
   if (!loginInterception) {
     hasToken = true;
   }
@@ -56,7 +55,9 @@ router.beforeEach(async (to, from, next) => {
               query: { redirect: to.path },
               replace: true,
             });
-          else next({ path: '/login', replace: true });
+          else {
+            next({ path: '/login', replace: true });
+          }
         }
       }
     }
