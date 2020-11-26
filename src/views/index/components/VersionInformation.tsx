@@ -4,14 +4,25 @@ import { Alert, Card } from 'ant-design-vue';
 import { format } from 'date-fns';
 import { defineComponent } from 'vue';
 
+Object.keys(dependencies).forEach(name => {
+  const value = dependencies[name]
+  dependencies[name] = value.toString().replace(/^\^/,'')
+})
+
+Object.keys(devDependencies).forEach(name => {
+  const value = devDependencies[name]
+  devDependencies[name] = value.toString().replace(/^\^/,'')
+})
+
+const message = (<>
+  基于
+  <span class="px-2 text-gray-600"><span class="font-bold text-blue-600">vite</span> {devDependencies['vite']}</span>
+  <span class="px-2 text-gray-600"><span class="font-bold text-blue-600">vue</span> {dependencies['vue']}</span>
+  <span class="px-2 text-gray-600"><span class="font-bold text-blue-600">ant-design-vue</span> {dependencies['ant-design-vue']}</span>
+</>)
+
 export const VersionInformation = defineComponent({
   render() {
-    const message = `
-    基于 
-    vite ${devDependencies['vite']}
-    vue ${dependencies['vue']}
-    ant-design-vue ${dependencies['ant-design-vue']}
-    `;
     const updateTime = format(new Date(), 'yyyy/MM/dd HH:mm:ss');
     return (
       <>

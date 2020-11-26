@@ -77,7 +77,7 @@ export default defineComponent({
 
     watch(route, (newRoute) => {
       redirect.value = (route.query?.redirect) as string ?? '/';
-    });
+    },{immediate: true});
 
     return {
       logo,

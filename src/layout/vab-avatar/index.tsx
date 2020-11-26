@@ -13,13 +13,13 @@ export const VabAvatar = defineComponent({
     const user = store.state.USER;
     const route = useRoute();
     const router = useRouter();
-    const logout = () => {
-      store.dispatch('USER/logout');
+    const logout = async () => {
+      await store.dispatch('USER/logout');
       if (recordRoute) {
         const fullPath = route.fullPath;
-        router.push(`/login?redirect=${fullPath}`);
+        return router.push(`/login?redirect=${fullPath}`);
       } else {
-        router.push('/login');
+        return router.push('/login');
       }
     };
 
