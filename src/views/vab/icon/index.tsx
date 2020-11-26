@@ -7,12 +7,13 @@ import {
   Card,
   Col,
   Divider,
-  Input,
+  Input, message,
   Pagination,
   Row,
 } from 'ant-design-vue';
 import { VabIcon } from '/@/layout/vab-icon';
 import _ from 'lodash';
+import copy from 'copy-to-clipboard';
 
 const queryForm = reactive({
   current: 1,
@@ -58,6 +59,13 @@ function renderSearch() {
   );
 }
 
+
+function copyTo(text:string){
+  const html = `<VabIcon icon="${text}" />`
+  copy(html)
+  message.success(`${html} - 复制成功！`)
+}
+
 export default defineComponent({
   setup() {
     onMounted(fetchData);
@@ -73,12 +81,14 @@ export default defineComponent({
           response.icons.map(text => (
             <Col key="index" sm={8} xs={6} md={4} lg={3} xl={3}
                  class="text-gray-500 hover:text-gray-600 cursor-pointer">
-              <Card
-                class="text-center rounded-md border-gray-100 hover:border-gray-500">
-                <VabIcon className="text-3xl text-gray-600" icon={text}/>
-              </Card>
-              <div class="text-center py-2">
-                {text}
+              <div onClick={() => copyTo(text)}>
+                <Card
+                  class="text-center rounded-md border-gray-100 hover:border-gray-500">
+                  <VabIcon className="text-3xl text-gray-600" icon={text}/>
+                </Card>
+                <div class="text-center py-2">
+                  {text}
+                </div>
               </div>
             </Col>
           ))
