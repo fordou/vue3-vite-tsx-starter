@@ -13,7 +13,6 @@ const {
   layout,
   header,
   themeName,
-  i18n,
   showLanguage,
   showProgressBar,
   showRefresh,
@@ -35,7 +34,6 @@ const getLocalStorage = (key: string) => {
 
 const theme = getLocalStorage('vue-admin-beautiful-pro-theme');
 const { collapse } = getLocalStorage('vue-admin-beautiful-pro-collapse');
-const { language } = getLocalStorage('vue-admin-beautiful-pro-language');
 
 export interface SettingsState {
   logo: string,
@@ -45,7 +43,6 @@ export interface SettingsState {
   layout: string
   header: SafeAny
   device: string
-  language: string
   showLanguage: boolean,
   showProgressBar: boolean,
   showRefresh: boolean,
@@ -64,7 +61,6 @@ const state: SettingsState = {
   layout: theme.layout || layout,
   header: theme.header || header,
   device: 'desktop',
-  language: language || i18n,
   showLanguage,
   showProgressBar,
   showRefresh,
@@ -81,7 +77,6 @@ export const SETTINGS: Module<SettingsState, any> = {
     collapse: (state) => state.collapse,
     device: (state) => state.device,
     header: (state) => state.header,
-    language: (state) => state.language,
     layout: (state) => state.layout,
     logo: (state) => state.logo,
     title: (state) => state.title,
@@ -143,13 +138,6 @@ export const SETTINGS: Module<SettingsState, any> = {
     foldSideBar(state) {
       state.collapse = true;
     },
-    changeLanguage(state, language) {
-      localStorage.setItem(
-        'vue-admin-beautiful-pro-language',
-        `{"language":"${language}"}`,
-      );
-      state.language = language;
-    },
   },
   actions: {
     toggleCollapse({ commit }) {
@@ -193,9 +181,6 @@ export const SETTINGS: Module<SettingsState, any> = {
     },
     foldSideBar({ commit }) {
       commit('foldSideBar');
-    },
-    changeLanguage: ({ commit }, language) => {
-      commit('changeLanguage', language);
     },
   },
 };

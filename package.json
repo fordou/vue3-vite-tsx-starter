@@ -15,7 +15,6 @@
     "@ant-design/icons-vue": "^5.1.6",
     "ant-design-vue": "^2.0.0-rc.1",
     "axios": "^0.21.0",
-    "clipboard": "^2.0.6",
     "date-fns": "^2.16.1",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.20",
@@ -28,7 +27,6 @@
   },
   "devDependencies": {
     "@staticdeploy/mock-server": "^2.0.0",
-    "@types/clipboard": "^2.0.1",
     "@types/js-cookie": "^2.2.6",
     "@types/lodash": "^4.14.165",
     "@types/mockjs": "^1.0.3",

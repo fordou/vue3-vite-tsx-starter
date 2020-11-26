@@ -5,7 +5,7 @@ import { SafeAny } from '/@/utils/type';
  */
 export const setting: SettingConfig = {
 
-  title: 'VUE 3.0 & TSX',
+  title: 'VUE3 STARTER',
 
   titleSeparator: ' - ',
 
@@ -36,8 +36,6 @@ export const setting: SettingConfig = {
   recordRoute: true,
 
   logo: 'vuejs-fill',
-
-  i18n: 'zh',
 
   errorLog: ['development', 'production'],
 
@@ -115,9 +113,6 @@ export interface SettingConfig {
 
   /** 是否显示logo，不显示时设置false，显示时请填写remixIcon图标名称，暂时只支持设置remixIcon */
   logo: string;
-
-  /** 语言类型zh、en */
-  i18n: string;
 
   /** 在哪些环境下显示高亮错误 */
   errorLog: string[];
