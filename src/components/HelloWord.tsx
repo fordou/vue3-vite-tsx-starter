@@ -1,12 +1,11 @@
 import { RendererElement } from '@vue/runtime-core';
-import { useState } from '/@/utils/use-state';
-import { FC } from '/@/utils/function-component';
+import { FC, useState } from '/@/react-to-vue';
 
 export interface HelloWordProps {
   msg: string;
 }
 
-const [count, setCount] = useState(0);
+const [count, setCount] = useState<number>(0);
 
 export const HelloWord: FC<HelloWordProps> = (props): RendererElement => {
   return (

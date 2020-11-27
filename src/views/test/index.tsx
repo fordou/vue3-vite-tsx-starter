@@ -1,9 +1,10 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import { Alert } from 'ant-design-vue';
 import { interval } from '/@/utils/timer';
 import { HelloWord } from '/@/components/HelloWord';
+import { useRef } from '/@/react-to-vue';
 
-const time = ref(0);
+const time = useRef(0);
 let timer: number | null = null;
 
 export default defineComponent({
@@ -15,7 +16,7 @@ export default defineComponent({
         <Alert
           message={'测试动态路由：' + time.value}
         />
-        <HelloWord msg="aaaaa" />
+        <HelloWord msg="aaaaa"/>
       </div>
     );
   },
