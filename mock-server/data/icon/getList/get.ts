@@ -1,4 +1,4 @@
-const data = [
+const data: string[] = [
   '24-hours-fill',
   '24-hours-line',
   '4k-fill',
@@ -2268,19 +2268,20 @@ const data = [
   'zoom-out-line',
   'zzz-fill',
   'zzz-line',
-]
-module.exports = (req,res) => {
-    const { title, current = 1, pageSize = 72 } = req.query
-    let mockList = data.filter((item) => {
-      return !(title && item.indexOf(title) < 0);
+];
 
-    })
-    const pageList = mockList.filter(
-      (item, index) =>
-        index < pageSize * current && index >= pageSize * (current - 1)
-    )
-    return res.status(200).send({
-      totalCount: mockList.length,
-      data: pageList,
-    })
-}
+export const getList = (req: any) => {
+  const { title, current = 1, pageSize = 72 } = req.query;
+  let mockList = data.filter((item) => {
+    return !(title && item.indexOf(title) < 0);
+
+  });
+  const pageList = mockList.filter(
+    (item, index) =>
+      index < pageSize * current && index >= pageSize * (current - 1),
+  );
+  return {
+    totalCount: mockList.length,
+    data: pageList,
+  };
+};

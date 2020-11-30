@@ -1,9 +1,10 @@
-const { handleRandomImage } = require('../../utils');
-const { mock } = require('mockjs');
-const List = [];
+import { mock } from 'mockjs';
+import { handleRandomImage } from '../../utils';
+
+const tableList:any[] = [];
 const count = 50;
 for (let i = 0; i < count; i++) {
-  List.push(
+  tableList.push(
     mock({
       uuid: '@uuid',
       id: '@id',
@@ -21,4 +22,4 @@ for (let i = 0; i < count; i++) {
   );
 }
 
-module.exports = { tableList: List };
+export {tableList}

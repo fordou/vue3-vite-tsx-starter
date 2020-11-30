@@ -1,7 +1,7 @@
-const { mock } = require('mockjs');
+import { mock } from 'mockjs';
 
-module.exports = (req, res) => {
-  const { accessToken } = req.body;
+export const userInfo = (req:any, res:any) => {
+  const { accessToken } = JSON.parse(req.body) || {};
   let roles = ['admin'];
   let ability = ['READ'];
   let username = 'admin';
@@ -21,7 +21,7 @@ module.exports = (req, res) => {
     username = 'test';
   }
 
-  res.status(200).send({
+  return {
     roles,
     ability,
     username,
@@ -31,5 +31,5 @@ module.exports = (req, res) => {
         'https://i.gtimg.cn/club/item/face/img/8/15918_100.gif'
       ]
     })
-  });
+  };
 };

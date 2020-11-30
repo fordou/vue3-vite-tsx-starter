@@ -7,9 +7,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start:mock-service": "mock-server --root='mock-server/data' --delay=500",
-    "build": "vite build",
-    "mock-server": "node ./mock/mockServer.js"
+    "build": "vite build"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^5.1.6",
@@ -24,7 +22,8 @@
     "tailwindcss": "^1.9.6",
     "vue": "^3.0.2",
     "vue-router": "^4.0.0-rc.3",
-    "vuex": "^4.0.0-rc.1"
+    "vuex": "^4.0.0-rc.1",
+    "mockjs": "^1.1.0"
   },
   "devDependencies": {
     "@staticdeploy/mock-server": "^2.0.0",

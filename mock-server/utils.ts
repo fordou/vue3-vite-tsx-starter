@@ -1,11 +1,11 @@
-const { Random } = require('mockjs');
+import { Random } from 'mockjs';
 
-class MockResponse {
-  constructor (obj) {
+export class MockResponse {
+  constructor (obj:any = {}) {
     Object.assign(this, obj);
   }
 }
-const accessTokens = {
+export const accessTokens:any = {
   admin: 'admin-accessToken',
   editor: 'editor-accessToken',
   test: 'test-accessToken',
@@ -18,12 +18,7 @@ const accessTokens = {
  * @param height
  * @returns {string}
  */
-function handleRandomImage(width = 50, height = 50) {
+export function handleRandomImage(width = 50, height = 50) {
   return `https://picsum.photos/${width}/${height}?random=${Random.guid()}`
 }
 
-module.exports = {
-  accessTokens,
-  MockResponse,
-  handleRandomImage
-};

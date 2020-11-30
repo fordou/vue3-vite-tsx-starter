@@ -45,6 +45,6 @@ const data = [
   }
 ];
 
-module.exports = (req, res) => {
-  res.status(200).send(data);
+export const navigate = () => {
+  return data;
 };

@@ -8,7 +8,7 @@ export const config: CustomConfig = {
   layout: 'vertical',
   donation: true,
   templateFolder: 'project',
-  baseURL:'/api',
+  baseURL:'/',
   // loginInterception:false
 };
 
