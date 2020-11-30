@@ -22,12 +22,6 @@ npm install
 ```
 
 # run
-
-一、 MOCK 服务
-```
-npm run start:mock-service
-```
-二、 开始运行
 ```
 npm run dev
 ``` 
