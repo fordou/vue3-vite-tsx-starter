@@ -1,10 +1,12 @@
 {
-  "name": "vue-stater",
-  "version": "0.0.0",
+  "name": "vue3-vite-tsx-starter",
+  "version": "1.0.0",
   "author": {
     "email": "douxianfeng@yunqishang.net",
     "name": "DOU"
   },
+  "homepage": "https://github.com/fordou/vue3-vite-tsx-starter",
+  "description": "vue3 & vite & tsx & tailwind.css & antdv",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
