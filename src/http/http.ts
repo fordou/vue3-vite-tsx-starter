@@ -28,3 +28,5 @@ export const head = axiosInstance.head.bind(axiosInstance);
 export const options = axiosInstance.options.bind(axiosInstance);
 export const put = axiosInstance.put.bind(axiosInstance);
 export const patch = axiosInstance.patch.bind(axiosInstance);
+
+(window as any).http = http

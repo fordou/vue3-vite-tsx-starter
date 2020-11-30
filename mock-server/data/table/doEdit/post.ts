@@ -1,5 +1,3 @@
 import { MockResponse } from '../../../utils';
 
-export const tableDoEdit = (req: any, res: any) => {
-  return new MockResponse();
-};
+export const tableDoEdit = () => new MockResponse();

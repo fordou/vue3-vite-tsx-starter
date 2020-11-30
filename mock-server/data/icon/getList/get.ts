@@ -2271,7 +2271,7 @@ const data: string[] = [
 ];
 
 export const getList = (req: any) => {
-  const { title, current = 1, pageSize = 72 } = req.query;
+  const { title, current = 1, pageSize = 72 } = JSON.parse(req.body);
   let mockList = data.filter((item) => {
     return !(title && item.indexOf(title) < 0);
 

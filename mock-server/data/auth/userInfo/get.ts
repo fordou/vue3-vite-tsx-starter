@@ -1,6 +1,6 @@
 import { mock } from 'mockjs';
 
-export const userInfo = (req:any, res:any) => {
+export const userInfo = (req:any) => {
   const { accessToken } = JSON.parse(req.body) || {};
   let roles = ['admin'];
   let ability = ['READ'];

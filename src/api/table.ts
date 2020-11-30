@@ -1,8 +1,8 @@
 import { get, post } from '/@/http'
 import { SafeAny } from '/@/utils/type';
 
-export function getList(params: SafeAny): Promise<SafeAny> {
-  return get('/table/getList', { params });
+export function getList(data: SafeAny): Promise<SafeAny> {
+  return get('/table/list', { data });
 }
 
 export function doEdit(data: SafeAny): Promise<SafeAny> {

@@ -7,9 +7,6 @@ import { STORE } from './store';
 // plugin
 import '/@/vab'
 
-// MOCK_DATA
-import '../mock-server'
-
 import 'ant-design-vue/dist/antd.css';
 import 'remixicon/fonts/remixicon.css';
 
@@ -21,3 +18,7 @@ createApp(App)
   .use(STORE)
   .use(Antd)
   .mount('#app');
+
+
+// MOCK_DATA
+import '../mock-server'
