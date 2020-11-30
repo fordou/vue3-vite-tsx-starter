@@ -1,6 +1,6 @@
 module.exports = {
   future: {},
-  purge: ['./index.html', './src/**/*.vue', './src/**/*.ts'],
+  purge: [],
   theme: {
     extend: {},
   },

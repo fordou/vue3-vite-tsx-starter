@@ -5,3 +5,4 @@ mock/rest/*/*/*/mock/response.txt
 /yarn.lock
 /yarn-error.log
 /.idea
+/dist

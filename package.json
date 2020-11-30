@@ -7,7 +7,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "build:site": "vite build --base '/vue3-vite-tsx-starter/' --mode production --assetsDir 'public'",
+    "publish": "npm run build:site"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^5.1.6",

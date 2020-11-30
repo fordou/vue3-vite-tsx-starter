@@ -4,6 +4,8 @@ import { App } from './App';
 import { router } from './router';
 import { STORE } from './store';
 
+(window as any).process = process || {}
+
 // plugin
 import '/@/vab'
 
