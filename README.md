@@ -1,4 +1,4 @@
-# Vue3 & TSX & tailwind
+# VUE3 & VITE & TSX
 ## 主要依赖
 1. `ant-design-vue@^2.0.0-rc.1`
 2. `tailwindcss@^1.9.6`
