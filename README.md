@@ -1,14 +1,15 @@
-# VUE3 & VITE & TSX
-## 主要依赖
-1. `ant-design-vue@^2.0.0-rc.1`
-2. `tailwindcss@^1.9.6`
-3. `vue@^3.0.2`
-4. `vue-router@^4.0.0-rc.3`
-5. `vuex@^4.0.0-rc.1`
+# VUE3 & VITE & TSX & ANT-DESIGN
 
+## dependencies
+1. `vite: 1.0.0-rc.9`
+1. `tailwindcss: 1.9.6`
+1. `vuex: 4.0.0-rc.1`
+1. `vue: 3.0.2`
+1. `ant-design-vue: 2.0.0-rc.1`
+1. `remixicon: 2.5.0`
+1. `vue-router: 4.0.0-rc.3`
 
-## 安装
-推荐 [tyarn](https://www.npmjs.com/package/tyarn) 
+## Installation
 ```bash
 # tyarn
 tyarn
@@ -20,7 +21,7 @@ yarn
 npm install
 ```
 
-# 运行
+# run
 
 一、 MOCK 服务
 ```
