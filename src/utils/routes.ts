@@ -4,7 +4,7 @@ import { isExternal } from '/@/utils/validate';
 import { hasRole } from '/@/utils/has-role';
 import { RouteRecordRaw } from 'vue-router';
 import { SafeAny } from '/@/utils/type';
-import path from 'path';
+import { resolve } from '/@/utils/pathResolve';
 
 const { rolesControl } = CONFIG;
 
@@ -70,7 +70,7 @@ export function filterRoutes(routes: any[], baseUrl = '/') {
     })
     .map((route) => {
       if (route.path !== '*' && !isExternal(route.path))
-        route.path = path.resolve(baseUrl, route.path);
+        route.path = resolve(baseUrl, route.path);
       route.fullPath = route.path;
       if (route.children)
         route.children = filterRoutes(route.children, route.fullPath);
